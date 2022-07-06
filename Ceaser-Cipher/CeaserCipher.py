@@ -21,7 +21,28 @@ def generateKey(n : int) -> Dict[str,str]:
 
     return key
 
+def encrypt(key, msg):
+    """encrypt a message using a key
 
+    Parameters
+    ----------
+    key : Dict[str,str]
+        A dictionary cipher key
+    msg : str
+        A message to encrypt
+
+    Returns
+    -------
+    str
+        A encrypted message
+    """
+    
+    converted = [key[c] if c in key else c for c in msg]
+    return ''.join(converted)
 
 if __name__ == "__main__":
-    print(generateKey(3))
+    key = generateKey(3)
+    msg = "Fred is a twat".upper()
+
+    print(f"Unencrpyted: {msg}")
+    print(f"Encrypted: {encrypt(key, msg)}")
