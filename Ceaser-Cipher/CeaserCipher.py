@@ -69,3 +69,12 @@ if __name__ == "__main__":
     print(f"Unencrpyted: {msg}")
     print(f"Encrypted: {encrypted}")
     print(f"Decrypted: {decrypted}")
+
+    print(f"-"*32)
+    print(f"Attempting to break the key")
+
+    for i in range(26):
+        key = generateKey(i+1)
+        decrypted = decrypt(key, encrypted)
+
+        print(f"Key {i+1}: {decrypted}")
